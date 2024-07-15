@@ -1,0 +1,39 @@
+@TestRESTApp_HostAddress = http://localhost:5226
+
+### Get all passwords
+
+GET {{TestRESTApp_HostAddress}}/passwords/
+Accept: application/json
+
+###  Create password with not valid body
+
+POST {{TestRESTApp_HostAddress}}/passwords/ 
+Content-Type: application/json
+
+{
+  "name": "string",
+  "value": "string",
+  "purpose": 0
+}
+
+### Create password with valid body
+
+POST {{TestRESTApp_HostAddress}}/passwords/ 
+Content-Type: application/json
+
+{
+  "name": "ales.gg@gmail.com",
+  "value": "string12345678",
+  "purpose": 0
+}
+
+### Delete password
+
+DELETE {{TestRESTApp_HostAddress}}/passwords/ales.gg@gmail.com
+Content-Type: application/json
+
+{
+  "name": "ales.gg@gmail.com",
+  "value": "string12345678",
+  "purpose": 0
+}
