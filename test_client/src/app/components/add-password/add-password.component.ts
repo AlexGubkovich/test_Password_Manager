@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, OnInit, ViewChild, inject, signal } from '@angular/core';
-import { PasswordsService } from '../../passwords.service';
+import { PasswordsService } from '../../services/passwords.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PasswordType, PasswordTypeLabels, PasswordTypes } from '../../models/passwors-type.enum';
 import { getValidationMessages, isValidationErrorResult } from '../../models/validation-error-result.model';

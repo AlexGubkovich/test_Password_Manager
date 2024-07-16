@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
-import { PasswordsClient } from './clients/passwords.client';
 import { BehaviorSubject, tap } from 'rxjs';
-import { Password } from './models/password.model';
-import { CreatePassword } from './models/create-password.model';
+import { PasswordsClient } from '../clients/passwords.client';
+import { Password } from '../models/password.model';
+import { CreatePassword } from '../models/create-password.model';
 
 @Injectable({
   providedIn: 'root'

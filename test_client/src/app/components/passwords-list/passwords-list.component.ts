@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { PasswordsService } from '../../passwords.service';
 import { AsyncPipe, DatePipe } from '@angular/common';
 import { Observable, combineLatest, debounceTime, filter, map, startWith } from 'rxjs';
 import { Password } from '../../models/password.model';
 import { PasswordValueElementComponent } from '../password-value-element/password-value-element.component';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PasswordsService } from '../../services/passwords.service';
 
 @Component({
   selector: 'passwords-list',
