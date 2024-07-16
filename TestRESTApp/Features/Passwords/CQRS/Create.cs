@@ -39,7 +39,7 @@ public static class Create
             {
                 Name = request.Name,
                 Value = request.Value,
-                CreationTime = DateTime.UtcNow,
+                CreationDate = DateTime.UtcNow,
                 Purpose = request.Purpose
             };
 

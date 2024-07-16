@@ -6,7 +6,7 @@ public class Password
 
     public required string Value { get; set; }
 
-    public DateTime CreationTime { get; set; }
+    public DateTime CreationDate { get; set; }
 
     public PasswordPurposeType Purpose { get; set; }
 }

@@ -25,8 +25,8 @@ public static class GetAll
         public async Task<PasswordDto[]> Handle(Query request, CancellationToken cancellationToken)
         {
             return await dbContext.Passwords
-                .OrderBy(x => x.CreationTime)
-                .Select(x => new PasswordDto(x.Name, x.Value, x.CreationTime))
+                .OrderByDescending(x => x.CreationDate)
+                .Select(x => new PasswordDto(x.Name, x.Value, x.CreationDate))
                 .ToArrayAsync(cancellationToken);
         }
     }

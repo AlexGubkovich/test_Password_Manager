@@ -22,8 +22,8 @@ POST {{TestRESTApp_HostAddress}}/passwords/
 Content-Type: application/json
 
 {
-  "name": "ales.gg@gmail.com",
-  "value": "string12345678",
+  "name": "ales@gggm1ail.com1111",
+  "value": "string1231qd45678",
   "purpose": 0
 }
 
