@@ -10,7 +10,11 @@ services.AddControllers(mvcOptions => mvcOptions.AddDefaultResultConvention());
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
 
-services.AddDbContext<AppDbContext>(x => x.UseInMemoryDatabase("In_Memeory_DB"));
+services.AddDbContext<AppDbContext>(x =>
+{
+    var connString = builder.Configuration.GetConnectionString("Postgres");
+    x.UseNpgsql(connString);
+});
 
 services.AddValidatorsFromAssemblyContaining<Program>(ServiceLifetime.Singleton);
 services.AddMediatR(x => x.RegisterServicesFromAssemblyContaining<Program>());
@@ -34,5 +38,10 @@ app.UseHttpsRedirection();
 app.UseCors("AllowAll");
 
 app.MapControllers();
+
+if (app.Environment.IsProduction())
+{
+    app.MigrationInit();
+}
 
 app.Run();
