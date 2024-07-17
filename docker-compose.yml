@@ -1,0 +1,24 @@
+services:
+  angular-client:
+    build: ./test_client
+    ports:
+      - 4200:4200
+  passwords_webapi:
+    build: ./TestRestApp
+    ports:
+      - 5226:8080
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ConnectionStrings__Postgres=Host=postgres;Database=passwords_db;Username=test_user;Password=user_super_secret
+    depends_on:
+      - postgres 
+  postgres:
+    image: postgres:14-alpine
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/apps/postgres:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=user_super_secret
+      - POSTGRES_USER=test_user
+      - POSTGRES_DB=passwords_db
